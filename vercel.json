@@ -1,8 +1,13 @@
 {
-  "crons": [
-    {
-      "path": "/api/payload-jobs/run",
-      "schedule": "0 0 * * *"
+  "build": {
+    "env": {
+      "NODE_OPTIONS": "--no-deprecation"
     }
-  ]
+  },
+  "buildCommand": "pnpm run ci",
+  "functions": {
+    "app/**/*.ts": {
+      "maxDuration": 30
+    }
+  }
 }
